@@ -1,6 +1,6 @@
 # docker stop scorewater-turbinator && docker rm scorewater-turbinator && docker build --no-cache --tag scorewater-turbinator . && docker run -p 8083:8080 --name scorewater-turbinator scorewater-turbinator MQTT_BROKER_URL=host.docker.internal
 
-FROM openjdk:8-jdk-alpine
+FROM openjdk:17-jdk-alpine
 
 # Install Maven and Git so we can checkout andbuild Java code
 RUN apk add maven
@@ -22,9 +22,6 @@ RUN cd /src/civity && \
     git clone https://github.com/CivityNL/SCOREwater-Java.git
 
 # Build 
-RUN cd /src/civity/SCOREwater-Java/civity-rest-client && \
-    mvn clean install
-
 RUN cd /src/civity/SCOREwater-Java/civity-rest-client && \
     mvn clean install
 

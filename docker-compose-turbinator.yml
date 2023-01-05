@@ -10,7 +10,7 @@ services:
       - default
     ports:
       - "1026:1026"
-    command: -dbhost mongo-db -logLevel DEBUG -noCache -corsOrigin __ALL -corsMaxAge 600
+    command: -dbhost mongo-db -logLevel WARN -noCache -corsOrigin __ALL -corsMaxAge 600
     healthcheck:
       test: curl --fail -s http://orion:1026/version || exit 1
 
@@ -67,12 +67,12 @@ services:
       - "ACTIVEMQ_QUEUE_NAME_PREFIX=turbinator"
       - "CONTEXT_BROKER_URL=http://orion:1026"
       - "CONTEXT_BROKER_SERVICE=turbinator"
-      - "MQTT_BROKER_URL=tcp://212.237.149.212"
+      - "MQTT_BROKER_URL=tcp://activemq"
       - "MQTT_BROKER_PORT=1883"
       - "MQTT_BROKER_USERNAME=admin"
       - "MQTT_BROKER_PASSWORD=admin"
       - "MQTT_BROKER_TOPIC=/sensor/turbinator/#"
-      - "PG_HOST=212.237.149.212"
+      - "PG_HOST=postgis"
       - "PG_PORT=5432"
       - "PG_DATABASE=turbinator"
       - "PG_USER=turbinator"

@@ -71,7 +71,7 @@ services:
       - "MQTT_BROKER_PORT=1883"
       - "MQTT_BROKER_USERNAME=admin"
       - "MQTT_BROKER_PASSWORD=admin"
-      - "MQTT_BROKER_TOPIC=/sensor/turbinator/#"
+      - "MQTT_BROKER_TOPIC=sensor/turbinator/#"
       - "PG_HOST=postgis"
       - "PG_PORT=5432"
       - "PG_DATABASE=turbinator"
